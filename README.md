@@ -10,7 +10,7 @@ This lab demonstrates how to reduce Tier 1 alert triage time from ~15 minutes to
 
 ## Architecture Overview
 
-![Architecture Diagram](architecture/workflow-diagram.png)
+![Architecture Diagram](Security-soc-workflow-pipeline.png)
 
 ### End-to-End Pipeline Flow
 1. **Telemetry Collection (Windows 10 + Sysmon + Splunk Universal Forwarder):** Captures authentication failures (`EventCode=4625`) and forwards logs over TCP port `9997` to Splunk Enterprise.
