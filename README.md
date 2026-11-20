@@ -37,3 +37,25 @@ This lab demonstrates how to reduce Tier 1 alert triage time from ~15 minutes to
 index="automated-soc-project" EventCode=4625 
 | fillnull value="N/A" ComputerName, user, src_ip 
 | stats count by _time, ComputerName, user, src_ip
+```
+
+## Schedule
+Cron * * * * * (runs every minute)
+
+## Trigger Condition
+Number of Results > 0
+
+## Actions
+Add to Triggered Alerts & Webhook (POST to n8n Production URL)
+
+## Deployment & Replication Guide
+
+* **Configure Splunk Index & Receiver**: Create the automated-soc-project index and enable receiving on port 9997.
+* **Forward Windows Telemetry**: Install Sysmon and Splunk Universal Forwarder on Windows 10 using splunk/inputs.conf.
+* **Deploy n8n via Docker**:
+
+Bash
+docker run -d --name n8n -p 5678:5678 -e GENERIC_TIMEZONE="Africa/Tunis" -v n8n_data:/home/node/.n8n n8nio/n8n
+Import n8n Workflow: Import n8n/soc_triage_workflow.json, configure your AbuseIPDB, OpenAI, and Slack credentials, and switch the workflow to Active.
+
+* **Link Splunk Webhook**: Paste the n8n Production Webhook URL into the Splunk alert actions and simulate failed RDP logins to test end-to-end execution.
