@@ -55,7 +55,9 @@ Add to Triggered Alerts & Webhook (POST to n8n Production URL)
 * **Deploy n8n via Docker**:
 
 Bash
+```
 docker run -d --name n8n -p 5678:5678 -e GENERIC_TIMEZONE="Africa/Tunis" -v n8n_data:/home/node/.n8n n8nio/n8n
-Import n8n Workflow: Import n8n/soc_triage_workflow.json, configure your AbuseIPDB, OpenAI, and Slack credentials, and switch the workflow to Active.
+```
 
+* **Import n8n Workflow**: Import n8n/soc_triage_workflow.json, configure your AbuseIPDB, OpenAI, and Slack credentials and switch the workflow to Active.
 * **Link Splunk Webhook**: Paste the n8n Production Webhook URL into the Splunk alert actions and simulate failed RDP logins to test end-to-end execution.
