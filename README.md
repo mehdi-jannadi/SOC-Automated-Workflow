@@ -1,6 +1,6 @@
 # SOC-Automated-Workflow
 
-# SOC Automated Workflow (automated-soc-project)
+## SOC Automated Workflow (automated-soc-project)
 
 An end-to-end **Automated SOC Alert Triage & Threat Enrichment Pipeline** integrating **Windows Sysmon**, **Splunk Enterprise (SIEM)**, **n8n (SOAR)**, **AbuseIPDB**, **OpenAI**, and **Slack (ChatOps)**.
 
@@ -9,8 +9,6 @@ This lab demonstrates how to reduce Tier 1 alert triage time from ~15 minutes to
 ---
 
 ## Architecture Overview
-
-![Architecture Diagram](Security-soc-workflow-pipeline.png)
 
 ### End-to-End Pipeline Flow
 1. **Telemetry Collection (Windows 10 + Sysmon + Splunk Universal Forwarder):** Captures authentication failures (`EventCode=4625`) and forwards logs over TCP port `9997` to Splunk Enterprise.
