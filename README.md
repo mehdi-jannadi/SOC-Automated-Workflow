@@ -1,4 +1,5 @@
 # SOC-Automated-Workflow
+Automated SOC alert triage & threat enrichment pipeline integrating Splunk SIEM, n8n SOAR, AbuseIPDB, OpenAI and Slack.
 
 ## SOC Automated Workflow (automated-soc-project)
 
